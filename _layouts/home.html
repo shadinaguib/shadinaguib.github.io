@@ -1,0 +1,132 @@
+---
+title: Welcome to my Project Page
+layout: default
+bodyClass: page-home
+---
+
+<div class="intro">
+  <div class="container">
+    <div class="row justify-content-start">
+      <div class="col-12 col-md-12 col-lg-6 order-2">
+        {{ content }}
+        {% if site.homepage.show_call_box %}
+        {% include call.html show_button=true %}
+        {% endif %}
+      </div>
+      {% if page.intro_image %}
+      <div class="col-12 col-lg-6 order-1 order-lg-2 position-relative">
+        <img alt={{ page.title }}
+          class="intro-image{% if page.intro_image_absolute %} intro-image-absolute{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}"
+          src="{{ page.intro_image | relURL }}" />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="container pt-1">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="feature-projects">
+          <h2 class="feature-title">Featured Projects</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-6 pb-6 pb-md-10">
+    <div class="row justify-content-start">
+      <div class="col-12 col-md-4 mb-1">
+        <div class="project project-summary">
+          <div class="project-content">
+            <h2 class="project-title">
+              <a href="/robotics/uav/">Autonomous UAV</a>
+            </h2>
+            <p>A drone with a collision avoidance algorithm.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 mb-1">
+        <div class="project project-summary">
+          <div class="project-content">
+            <h2 class="project-title">
+              <a href="/software/mobility-and-friendship/">Does Mobility Make or Break Friendships?</a>
+            </h2>
+            <p>
+              A study of the effect of Mobility on Friendship using different models to predict how many friends
+              Foursquare users will make or break in a 22 month time period.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 mb-1">
+        <div class="project project-summary">
+          <div class="project-content">
+            <h2 class="project-title">
+              <a href="/robotics/thymio/">Navigation and Path Planning for the Thymio Robot</a>
+            </h2>
+            <p>We used computer vision to detect and track two seperate Thymios, and switch their positions using
+              following an optimal path, all while avoiding local obstacles.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 mb-1">
+        <div class="project project-summary">
+          <div class="project-content">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 mb-1">
+        <div class="project project-summary">
+          <div class="project-content">
+            <h2 class="project-title">
+              <a href="/projects/">
+                <center>...</center>
+              </a>
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 mb-1">
+        <div class="project project-summary">
+          <div class="project-content">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <a class="button button-primary" href="{{site.baseurl}}/projects">View All projects</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if site.data.features %}
+<div class="strip strip-grey">
+  <div class="container pt-6 pb-6 pt-md-10 pb-md-10">
+    <div class="row justify-content-center">
+
+      {% for feature in site.data.features %}
+      <div class="col-12 col-md-6 col-lg-4 mb-2">
+        <a class="feature" href="{{site.baseurl}}/projects#{{ feature.ref }}">
+          {% if feature.image %}
+          <div class="feature-image"><img alt="{{ feature.title }} logo" src="{{ feature.image | relative_url }}" />
+          </div>
+          {% endif %}
+          <h2 class="feature-title">{{ feature.title }}</h2>
+          <div class="feature-content">{{ feature.description }}</div>
+        </a>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+{% endif %}

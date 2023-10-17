@@ -1,0 +1,140 @@
+---
+layout: default
+bodyClass: page-projects-list
+---
+
+<div class="intro">
+  <div class="container">
+    <div class="row justify-content-start">
+      <div class="col-12 col-lg-6 order-2">
+        {{ content }}
+      </div>
+      {% if page.intro_image %}
+      <div class="col-12 col-lg-6 order-1 order-lg-2 position-relative">
+        <img alt={{ page.title }}
+          class="intro-image{% if page.intro_image_absolute %} intro-image-absolute-project{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}"
+          src="{{ page.intro_image | relative_url }}" />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<a class="strip" id="projects-robotics">
+  <div class="container pt-1">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12 col-lg-12 mb-2">
+        <div class="feature-projects">
+          <div class="feature-image"><img alt="Robotics logo" src="/images/features/robotics.png" /></div>
+          <h2 class="feature-title">Robotics</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-2 pb-6">
+    <div class="row">
+      {% for project in site.robotics %}
+      <div class="col-12 col-md-6 mb-3">
+        <div class="project project-summary">
+          <div class="project-content">
+            <h2 class="project-title">
+              <a href="{{site.baseurl}}{{ project.url }}">{{ project.title }}</a>
+            </h2>
+            <p>{{ project.content | markdownify | strip_html | truncate: 100 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</a>
+
+<a class="strip" id="projects-software">
+  <div class="container pt-1">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12 col-lg-12 mb-2">
+        <div class="feature-projects">
+          <div class="feature-image"><img alt="Software logo" src="/images/features/computer_science.png" /></div>
+          <h2 class="feature-title">Software Engineering and Data Science</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-2 pb-6">
+    <div class="row">
+      {% for project in site.software %}
+      <div class="col-12 col-md-6 mb-3">
+        <div class="project project-summary">
+          <div class="project-content">
+            <h2 class="project-title">
+              <a href="{{site.baseurl}}{{ project.url }}">{{ project.title }}</a>
+            </h2>
+            <p>{{ project.content | markdownify | strip_html | truncate: 100 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</a>
+
+<a class="strip" id="projects-space">
+  <div class="container pt-1">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12 col-lg-12 mb-2">
+        <div class="feature-projects">
+          <div class="feature-image"><img alt="Space logo" src="/images/features/space.png" /></div>
+          <h2 class="feature-title">Machine Learning</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-2 pb-6">
+    <div class="row">
+      {% for project in site.space %}
+      <div class="col-12 col-md-6 mb-3">
+        <div class="project project-summary">
+          <div class="project-content">
+            <h2 class="project-title">
+              <a href="{{site.baseurl}}{{ project.url }}">{{ project.title }}</a>
+            </h2>
+            <p>{{ project.content | markdownify | strip_html | truncate: 100 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <h2 class="project-title">
+      <p style="text-align:center">Coming Soon...</p>
+    </h2>
+  </div>
+</a>
+
+<a class="strip" id="projects-design">
+  <div class="container pt-1">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12 col-lg-12 mb-2">
+        <div class="feature-projects">
+          <div class="feature-image"><img alt="Space logo" src="/images/features/design.png" /></div>
+          <h2 class="feature-title">Personal Projects</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-2 pb-6">
+    <div class="row">
+      {% for project in site.design %}
+      <div class="col-12 col-md-6 mb-3">
+        <div class="project project-summary">
+          <div class="project-content">
+            <h2 class="project-title">
+              <a href="{{site.baseurl}}{{ project.url }}">{{ project.title }}</a>
+            </h2>
+            <p>{{ project.content | markdownify | strip_html | truncate: 100 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</a>

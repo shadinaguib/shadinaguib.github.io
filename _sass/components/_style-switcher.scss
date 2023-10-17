@@ -1,0 +1,64 @@
+.fa-moon {
+  color: #fdb73e;
+  @include media-breakpoint-up(xs) {
+  }
+  @include media-breakpoint-up(sm) {
+    transform: rotate(-90deg);
+  }
+}
+
+.fa-sun {
+  color: #fdb73e;
+  @include media-breakpoint-up(xs) {
+  }
+  @include media-breakpoint-up(sm) {
+    transform: rotate(-90deg);
+  }
+}
+
+.toggle-modifier {
+  top: 25px;
+  right: 50%;
+  margin-right: -32px;
+  z-index: 41;
+  @include media-breakpoint-up(xs) {
+  }
+  @include media-breakpoint-up(sm) {
+    transform: rotate(90deg);
+    top: 105px;
+    right: 10px;
+    margin-right: 0;
+  }
+  @include media-breakpoint-up(md) {
+    top: 95px;
+  }
+}
+
+.label {
+  background-color: var(--black);
+  border-radius: 50px;
+  display: flex;
+  position: fixed;
+  align-content: center;
+  justify-content: space-between;
+  padding: 6px;
+  height: 31px;
+  width: 60px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.ball {
+  width: 25px;
+  height: 25px;
+  top: 3px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #f2f2fa;
+  transition: all 0.2s linear;
+  @include media-breakpoint-up(xs) {
+  }
+  @include media-breakpoint-up(sm) {
+    background-color: var(--white);
+  }
+}

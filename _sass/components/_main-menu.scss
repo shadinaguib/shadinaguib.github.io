@@ -1,0 +1,38 @@
+.main-menu {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+  > ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    > li {
+      list-style: none;
+      font-size: 1rem;
+      > a {
+        padding: 10px 16px 10px 16px;
+        display: inline-block;
+        font-weight: normal;
+        text-decoration: none;
+        color: $primary;
+        transition: all 0.2s ease;
+        &:hover {
+          opacity: 0.6;
+          text-decoration: none;
+          transition: all 0.2s ease;
+        }
+      }
+      &.active {
+        > a {
+          font-weight: bold;
+          text-decoration: none;
+          &:hover {
+            text-decoration: none;
+            transition: all 100ms ease-in 100ms;
+          }
+        }
+      }
+    }
+  }
+}

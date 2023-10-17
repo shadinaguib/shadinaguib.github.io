@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Navigation and Path Planning for the Thymio Robot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="/images/favicon-32x32.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet" id="theme-link">
+  <link href="/assets/css/font-awesome.css" rel="stylesheet">
+  
+  <meta property="og:title" content="Thomas Kimble" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thomaskimble.github.io/" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/zerostaticthemes/jekyll-serif-theme/master/screenshots/tn.png" />
+  <meta property="og:description" content="Thomas Kimble | Project Page" />
+  <meta name="twitter:card" content="" />
+  <meta name="twitter:site" content="" />
+  <meta name="twitter:creator" content="" />
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body class='page '>
+  <div class="transition is-active">
+    <img class="loading-image" src="/images/loading.svg">
+  </div>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  
+  <ul>
+    
+    <li class="">
+      <a href="/">Home</a>
+    </li>
+    
+    <li class="">
+      <a href="/projects/">Projects</a>
+    </li>
+    
+    <li class="">
+      <a href="/about/">About</a>
+    </li>
+    
+    <li class="">
+      <a href="/contact/">Contact</a>
+    </li>
+    
+  </ul>
+</div>
+
+  <div id="wrapper" class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="/">
+        <img height="36px" alt="Thomas Kimble" src="/images/logo/logo-dark.svg" id="logo-desktop"/>
+      </a>
+    </div>
+    <div class="logo-mobile">
+      <a href="/">
+        <img alt="Thomas Kimble" src="/images/logo/logo-mobile-dark.svg" id="logo-mobile"/>
+      </a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  
+  <ul>
+    
+    <li class="">
+      <a href="/">Home</a>
+    </li>
+    
+    <li class="">
+      <a href="/projects/">Projects</a>
+    </li>
+    
+    <li class="">
+      <a href="/about/">About</a>
+    </li>
+    
+    <li class="">
+      <a href="/contact/">Contact</a>
+    </li>
+    
+  </ul>
+</div>
+
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button" aria-label="Mobile Menu">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+    <div class="container pb-6 pt-6 pt-md-10 pb-md-10">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10">
+      <div class="project project-single">
+        <h1 class="title">Navigation and Path Planning for the Thymio Robot</h1>
+        <div class="content"><p>We used computer vision to detect and track two seperate Thymios, and switch their positions using following an optimal path, all while avoiding local obstacles.</p>
+
+<ul>
+  <li><strong>Date:</strong> December 2019</li>
+  <li><strong>Author:</strong> Shadi Naguib, Raphael Ausilio, Valentin Karam, Niccolò Stefanini</li>
+  <li><strong>Field of Study:</strong> Robotics, Navigation, Path Planning, Computer Vision, Filtering</li>
+  <li><strong>Context:</strong> EPFL Ma-1 <em>Mobile Robotics</em> Project</li>
+</ul>
+
+<div class="web-image-md">
+    <img src="../../images/project-images/thymio/thymio_robot.png" />
+</div>
+
+<h1 id="goal">Goal</h1>
+
+<p>We had a lot of freedom in the creation of this project, with our only instructions being to use the <em>Thymio</em> robot and to create a project that included the following four concepts:</p>
+<ul>
+  <li><strong>vision</strong></li>
+  <li><strong>global navigation</strong></li>
+  <li><strong>local navigation</strong></li>
+  <li><strong>filtering</strong></li>
+</ul>
+
+<p>We decided to use two <em>thymio</em> robots in flat arena with stationary global obstacles. The goal was to switch their positions using an optimal path planning algorithm around the global map. Local obstacles were allowed to be introduced into the arena at any moment so we used a collision avoidance algorithm to contour each local obstacle. We used a Kalman filter for position state estimation and correction, using odometry and camera data.</p>
+
+<p>We run a loop based on a finite state machine that stops once each of the two <em>Thymios</em> have reached their goal positions. The robot moves along it’s optimal trajectory, but for each loop it checks for local obstacles with its proximity sensors, and uses the kalmann filter to either correct the deviation from the path, or recalculate a trajectory every 5 loops. If an obstacle is detected, the robot changes state and switches to wall following mode, where it avoids the local obstacle and recalculates an optimal trajectory once avoided.</p>
+
+<h1 id="vision">Vision</h1>
+
+<p>We used an external webcam to take a birds eye image of our global map containing the global obstacles and the two Thymios:</p>
+
+<div class="web-image-md">
+    <img src="../../images/project-images/thymio/thymio_global_map.png" />
+</div>
+
+<p>Every time step we take a picture of the global map and filter the image. We use morphological operators that recognize a 3D printed part place on the robot to estimate it’s position and orientation. These operators also detect the global obstacles as shown in the image below. From this we can extract an occupancy grid with the pose of each <em>thymio</em> and obstacle.</p>
+
+<div class="web-image-md">
+    <img src="../../images/project-images/thymio/thymio_detection.png" />
+</div>
+
+<h1 id="global-navigation">Global Navigation</h1>
+
+<p>We chose the A* search algorithm thanks to its completeness, optimality, and efficiency. Since the two robots are to switch positions, their optimal paths should theoretically be identical. Therefore we calculate the trajectory for one robot, and consider it to be an obstacle in it’s “half way” position during the calculations for the second robot. This gives us a different path for each robot, which we can plot in the occupancy grid as shown here:</p>
+
+<div class="web-image-md">
+    <img src="../../images/project-images/thymio/thymio_paths.png" />
+</div>
+
+<p>Here we create the different parameters we are going to use for navigation:</p>
+<ul>
+  <li><strong>posArray</strong>: an array of global path positions [ [x y orientation] … [x y orientation] ]</li>
+  <li><strong>movArray</strong>: an array of movements for the global path [ [dx dy] … [dx dy] ]</li>
+  <li><strong>dirArray</strong>: an array of next directions (relative to the robot’s current position) for the global path [d d … d]</li>
+</ul>
+
+<p>The orientation and next directions are defined as follows and are stored as commands for the robot:</p>
+
+<div class="web-image-md">
+    <img src="../../images/project-images/thymio/thymio_movement.svg" />
+</div>
+
+<h1 id="local-navigation">Local Navigation</h1>
+
+<p>We use the proximity sensors on the <em>thymio</em> robot to check for obstacles during each loop of the algorithm. If a local obstacle is detected, we initiate a wall following (or contouring) algorithm in three parts as follows:</p>
+
+<p>The avoidance is done in three parts and is illustrated in the figure below:</p>
+<ol>
+  <li>Obstacle detected. Approach wall and left or right</li>
+  <li>Left or right wall following</li>
+  <li>If angle error is lower than a threshold value, recalculate optimal trajectory and switch to navigation state</li>
+</ol>
+
+<div class="web-image-ms">
+    <img src="../../images/project-images/thymio/thymio_obstacle.svg" />
+</div>
+
+<p>During this time, we force values onto the sensors where the global obstacles are situated to avoid collisions with these.</p>
+
+<h1 id="filtering">Filtering</h1>
+
+<p>For filtering, we used a Kalman filter. We assume thta the system respects a constant velocity model where the velocity is in cells/degrees per motion. We use the Kalman filter to reestimate the position and a possible correction factor for the position. To filter using the camera detection data, we project the system with a matrix that is an identity for the three first values of the 2D pose [x y orientation]. After tuning we define the variances values for the state and measurement errors. In our case, the camera is supposed to be more trustful than the imprecise odometry, so we give more importance to its estimation.</p>
+
+<p>Every five loops of the algorithm, we apply corrections to the robot’s pose if it has deviated from its trajectory. If the deviation is larger than a user defined threshold, we instruct the algorithm to recalculate a new trajectory using A*.</p>
+
+<h1 id="additional-material">Additional Material</h1>
+
+<p>For any more information on the project, please don’t hesitate to contact me <a href="/contact">here</a>, or check out the jupyter notebook below.</p>
+
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <a class="button_link" href="https://github.com/shadinaguib/mobile-robotics-project" target="_blank">Code</a>
+  </div>
+</div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="label toggle-modifier">
+  <i class="fas fa-sun"> </i>
+  <i class="fas fa-moon"> </i>
+  <div class="ball" id="ball_id"></div>
+</div>
+
+  <div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="footer-inner">
+          <h3 class="footer-title">Thomas Kimble</h3>
+          <ul>
+            
+            
+            <li class="">
+              <a href="/">Home</a>
+            </li>
+            
+            <li class="">
+              <a href="/contact/">Contact</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          
+            <div class="social">
+  <a href="https://github.com/shadinaguib" target="blank">
+    <img src="/images/social/github-dark.svg" title="GitHub" alt="GitHub" id="logo-github" />
+  </a>
+  <a href="https://www.linkedin.com/in/shadinaguib/" target="blank">
+    <img src="/images/social/linkedin-dark.svg" title="Linkedin" alt="Linkedin" id="logo-linkedin" />
+  </a>
+</div>
+          
+          
+          <div class="copyright">© THOMAS KIMBLE 2021</div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <script defer type="text/javascript" src="/assets/js/scripts.js"></script>
+  <script type="text/javascript" src="/assets/js/style-switcher.js"></script>
+</body>
+</html>

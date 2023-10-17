@@ -1,0 +1,114 @@
+.content {
+  background-color: var(--background);
+  a {
+    text-decoration: none;
+    color: $primary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  strong {
+    font-width: bold;
+    color: var(--text-title);
+  }
+  em {
+    font-style: italic;
+    color: var(--text-subtitle);
+  }
+  p {
+    font-family: $font-family-base;
+    line-height: 1.56;
+    color: var(--text-subtitle);
+  }
+  h1 {
+    font-family: $font-family-base;
+    font-size: 34px;
+    line-height: 1.26;
+    font-weight: normal;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: var(--text-title);
+  }
+  h2 {
+    font-family: $font-family-base;
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-top: 30px;
+    color: var(--text-title);
+  }
+  h3 {
+    font-family: $font-family-base;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: normal;
+    margin-top: 30px;
+    color: var(--text-title);
+  }
+  h4 {
+    text-decoration: none;
+    color: $primary;
+    &:hover {
+      color: var(--background);
+      text-decoration: bold;
+    }
+  }
+  ul,
+  ol {
+    margin-bottom: 20px;
+    ul,
+    ol {
+      margin-bottom: 0;
+    }
+  }
+  ul {
+    list-style: disc;
+  }
+  ol {
+    list-style: decimal;
+  }
+  li {
+    margin-bottom: 5px;
+    line-height: 1.56;
+    margin-left: 20px;
+    color: var(--text-subtitle);
+  }
+  hr {
+    border: none;
+    border-bottom: 1px solid var(--background-offset);
+  }
+  table {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: var(--text-subtitle);
+    th,
+    td {
+      padding: 5px;
+      vertical-align: top;
+      border-top: 1px solid var(--background-offset);
+    }
+    thead th {
+      vertical-align: bottom;
+      border-bottom: 1px solid var(--background-offset);
+      text-align: left;
+      font-weight: bold;
+      color: var(--text-title);
+    }
+    tbody + tbody {
+      border-top: 1px solid var(--background-offset);
+      color: var(--text-subtitle);
+    }
+  }
+  blockquote {
+    padding: 0 1em;
+    color: var(--text-subtitle);
+    border-left: .25em solid $secondary;
+  }
+}

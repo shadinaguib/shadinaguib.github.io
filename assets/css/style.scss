@@ -1,0 +1,178 @@
+---
+# this ensures Jekyll reads the file to be transformed into CSS later
+---
+
+// Colors
+$primary: #fdb73e;
+$secondary: #977b49;
+$black: #2f2f41;
+$white: #ffffff;
+$white-offset: #f7f7ff;
+$steel: #5C5A5A;
+
+// Links
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-color: lighten($primary, 20%);
+$link-hover-decoration: none;
+
+// Fonts
+$font-family-base: Helvetica, Arial, sans-serif, -apple-system;
+$font-family-heading: 'Archivo', sans-serif, -apple-system;
+
+// Footer
+$footer-background-color: $primary;
+$footer-text-color: $white;
+$sub-footer-background-color: darken($primary, 10%);
+$sub-footer-text-color: $white;
+
+// Bootstrap
+@import 'bootstrap-variables';
+@import 'bootstrap/bootstrap-reboot';
+@import 'bootstrap/bootstrap-grid';
+// @import 'bootstrap/bootstrap'; // Uncomment this line to import the entire Bootstrap library
+
+
+// Libraries
+@import 'libraries/hamburgers/hamburgers';
+
+// Components
+@import 'components/type';
+@import 'components/page';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/sub-footer';
+@import 'components/logo';
+@import 'components/main-menu';
+@import 'components/main-menu-mobile';
+@import 'components/hamburger';
+@import 'components/buttons';
+@import 'components/call';
+@import 'components/title';
+@import 'components/content';
+@import 'components/intro';
+@import 'components/intro-image';
+@import 'components/strip';
+@import 'components/feature';
+@import 'components/social';
+@import 'components/style-switcher';
+
+// Pages
+@import 'pages/home';
+@import 'pages/projects/page-projects-single';
+
+body {
+  font-size: 18px;
+  line-height: 1.2;
+  font-family: $font-family-base;
+  @include media-breakpoint-up(md) {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  --black: #161628;
+  --white: #F2F2FA;
+  --primary: #fdb73e;
+  --text-title: #ffffff;
+  --text-subtitle: #c0c0c0;
+  --background: #2f2f41;
+  --background-offset: #434354;
+  --background-line: #3f3f3f;
+  --sub-footer-text-color: #2f2f41;
+  --footer-text-color: #2f2f41;
+  --footer-text-color-dark: #000000;
+  --shadow: #09091B;
+  --main-menu-text: #fdb73e;
+  --main-menu-background: #2f2f41;
+}
+
+body.light-mode {
+  --text-title: #2f2f41;
+  --text-subtitle: #5C5A5A;
+  --background: #ffffff;
+  --background-offset: #F2F2FA;
+  --background-line: #f2f2f2;
+  --sub-footer-text-color: #ffffff;
+  --footer-text-color: #ffffff;
+  --footer-text-color-dark: #f7f7ff;
+  --shadow: rgba(50, 50, 93, 0.8);
+  --main-menu-text: #ffffff;
+  --main-menu-background: #fdb73e;
+}
+
+body.dark-mode {
+  --text-title: #ffffff;
+  --text-subtitle: #c0c0c0;
+  --background: #2f2f41;
+  --background-offset: #434354;
+  --background-line: #3f3f3f;
+  --sub-footer-text-color: #2f2f41;
+  --footer-text-color: #2f2f41;
+  --footer-text-color-dark: #000000;
+  --shadow: #09091B;
+  --main-menu-text: #fdb73e;
+  --main-menu-background: #2f2f41;
+}
+
+model-viewer {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  @include media-breakpoint-up(sm) {
+    width: 350px;
+    height: 350px;
+  }
+  @include media-breakpoint-up(md) {
+    width: 450px;
+    height: 450px;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 500px;
+    height: 500px;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+.loading-image {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 47.5%;
+  width: 5%;
+  animation: rotation 0.65s infinite steps(12,end);
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.transition {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: var(--background);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease-out;
+  @include media-breakpoint-up(sm) {
+    top: 70px;
+  }
+  @include media-breakpoint-up(md) {
+    top: 60px;
+  }
+}
+
+.transition.is-active {
+  opacity: 1;
+  pointer-events: all;
+}

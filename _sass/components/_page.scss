@@ -1,0 +1,131 @@
+.page {
+  padding-top: 40px;
+  background-color: var(--background);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  .wrapper {
+    flex: 1 0 0;
+  }
+}
+
+.plotly-graph {
+  display: block;
+}
+
+.web-image-full {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 10px;
+}
+
+.web-image-lg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+.web-image-md {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+.web-image-ms {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+  padding: 10px;
+}
+
+.web-image-sm {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  padding: 10px;
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 18px;
+  color: $primary;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.2s linear;
+  border-radius: 3px;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 5px;
+}
+.prev {
+  left: 5px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s linear;
+}
+
+.dot.active, .dot:hover {
+  background-color: var(--background-offset);
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.0s;
+  animation-name: fade;
+  animation-duration: 1.0s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

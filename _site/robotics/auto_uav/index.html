@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Autonomous UAV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="/images/favicon-32x32.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet" id="theme-link">
+  <link href="/assets/css/font-awesome.css" rel="stylesheet">
+  
+  <meta property="og:title" content="Thomas Kimble" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thomaskimble.github.io/" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/zerostaticthemes/jekyll-serif-theme/master/screenshots/tn.png" />
+  <meta property="og:description" content="Thomas Kimble | Project Page" />
+  <meta name="twitter:card" content="" />
+  <meta name="twitter:site" content="" />
+  <meta name="twitter:creator" content="" />
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body class='page '>
+  <div class="transition is-active">
+    <img class="loading-image" src="/images/loading.svg">
+  </div>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  
+  <ul>
+    
+    <li class="">
+      <a href="/">Home</a>
+    </li>
+    
+    <li class="">
+      <a href="/projects/">Projects</a>
+    </li>
+    
+    <li class="">
+      <a href="/about/">About</a>
+    </li>
+    
+    <li class="">
+      <a href="/contact/">Contact</a>
+    </li>
+    
+  </ul>
+</div>
+
+  <div id="wrapper" class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="/">
+        <img height="36px" alt="Thomas Kimble" src="/images/logo/logo-dark.svg" id="logo-desktop"/>
+      </a>
+    </div>
+    <div class="logo-mobile">
+      <a href="/">
+        <img alt="Thomas Kimble" src="/images/logo/logo-mobile-dark.svg" id="logo-mobile"/>
+      </a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  
+  <ul>
+    
+    <li class="">
+      <a href="/">Home</a>
+    </li>
+    
+    <li class="">
+      <a href="/projects/">Projects</a>
+    </li>
+    
+    <li class="">
+      <a href="/about/">About</a>
+    </li>
+    
+    <li class="">
+      <a href="/contact/">Contact</a>
+    </li>
+    
+  </ul>
+</div>
+
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button" aria-label="Mobile Menu">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+    <div class="container pb-6 pt-6 pt-md-10 pb-md-10">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10">
+      <div class="project project-single">
+        <h1 class="title">Autonomous UAV</h1>
+        <div class="content"><p>For the Aerial Robotics course at EPFl, we programmed a Crazyflie drone to find and precisely land on a
+platform with the help of minimal sensory information. Additionally, we used sensor readings to design a robust algorithm that can avoid obstacles present in the environment.</p>
+
+<ul>
+  <li><strong>Date:</strong> Jan 2021</li>
+  <li><strong>Authors:</strong> Shadi Naguib, Gregoire Bergamo, Nikitas Papadopoulos</li>
+  <li><strong>Field of Study:</strong> Robotics, Electronics</li>
+  <li><strong>Context:</strong> EPFL MA1 <em>Course Project</em></li>
+</ul>
+
+<div class="web-image-lg">
+    <img src="../../images/project-images/uav/drone_project_map.PNG" />
+</div>
+
+<p>The arena for the final demonstration is shown in the figure above. The task we are required
+to complete in this arena is composed of multiple phases:</p>
+<ul>
+  <li>The drone takes off from a take-off pad placed within the starting region.</li>
+  <li>Thanks to the optic-flow sensor and a z-range finder the drone can track its
+movements and find the landing pad in the landing zone.</li>
+  <li>Once the landing pad is found, the drone has to precisely land on it.</li>
+  <li>Upon successful landing, the drone takes off, flies back and lands on the take-off pad.</li>
+  <li>In the workspace, there can be a few obstacles of previously unknown dimensions
+which it can detect with the multiranger deck. Our developed algorithm makes the drone avoid any collisions.</li>
+</ul>
+
+<h2 id="room-setup-for-demonstration">Room setup for demonstration</h2>
+
+<div class="web-image-lg">
+    <img src="../../images/project-images/uav/151608304-cedae95a-245b-483c-a5d8-8a1c89c01a95.png" />
+</div>
+
+<p>A video showing the result can be found below.</p>
+
+<video class="web-image-lg" src="/images/project-images/uav/video.mp4" controls=""> </video>
+<p><br /></p>
+
+<h1 id="additional-material">Additional Material</h1>
+
+<p>For any more information on the project, please don’t hesitate to contact me <a href="/contact">here</a>, or check out the jupyter notebook below.</p>
+
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <a class="button_link" href="https://github.com/shadinaguib/uav-project" target="_blank">Code</a>
+  </div>
+</div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="label toggle-modifier">
+  <i class="fas fa-sun"> </i>
+  <i class="fas fa-moon"> </i>
+  <div class="ball" id="ball_id"></div>
+</div>
+
+  <div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="footer-inner">
+          <h3 class="footer-title">Thomas Kimble</h3>
+          <ul>
+            
+            
+            <li class="">
+              <a href="/">Home</a>
+            </li>
+            
+            <li class="">
+              <a href="/contact/">Contact</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          
+            <div class="social">
+  <a href="https://github.com/shadinaguib" target="blank">
+    <img src="/images/social/github-dark.svg" title="GitHub" alt="GitHub" id="logo-github" />
+  </a>
+  <a href="https://www.linkedin.com/in/shadinaguib/" target="blank">
+    <img src="/images/social/linkedin-dark.svg" title="Linkedin" alt="Linkedin" id="logo-linkedin" />
+  </a>
+</div>
+          
+          
+          <div class="copyright">© THOMAS KIMBLE 2021</div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <script defer type="text/javascript" src="/assets/js/scripts.js"></script>
+  <script type="text/javascript" src="/assets/js/style-switcher.js"></script>
+</body>
+</html>

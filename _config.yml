@@ -1,0 +1,41 @@
+baseurl: ''
+exclude: ['README.md']
+permalink: pretty
+title: 'Shadi Naguib'
+
+google_analytics_id: ""
+homepage:
+  show_call_box: true
+logo:
+  mobile: "images/logo/logo-mobile-dark.svg"
+  desktop: "images/logo/logo-dark.svg"
+  desktop_height: "36px"
+footer:
+  copyright_text: '© Shadi Naguib 2021'
+
+seo:
+  meta_og_title: "Shadi Naguib"
+  meta_og_type: "website"
+  meta_og_url: "https://shadinaguib.github.io/"
+  meta_og_image: "https://raw.githubusercontent.com/zerostaticthemes/jekyll-serif-theme/master/screenshots/tn.png"
+  meta_og_description: "Shadi Naguib | Project Page"
+
+collections:
+  robotics:
+    output: true
+  space:
+    output: true
+  software:
+    output: true
+  design:
+    output: true
+  music:
+    output: true
+
+sass:
+  indentWidth: 4
+  style: compact # possible values: nested expanded compact compressed
+  precision: 10
+
+plugins:
+  - jekyll-environment-variables

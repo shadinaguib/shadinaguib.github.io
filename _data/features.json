@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Robotics",
+    "description": "Master's Degree in Robotics.",
+    "image": "images/features/robotics.png",
+    "ref": "projects-robotics"
+  },
+  {
+    "title": "Software Engineering and Data Science",
+    "description": "Skills developed throughout my studies.",
+    "image": "images/features/computer_science.png",
+    "ref": "projects-software"
+  },
+  {
+    "title": "Personal projects",
+    "description": "Cool projects.",
+    "image": "images/features/music.png",
+    "ref": "projects-music"
+  }
+]
