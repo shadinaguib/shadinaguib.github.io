@@ -16,7 +16,7 @@ platform with the help of minimal sensory information. Additionally, we used sen
 * **Context:** EPFL MA1 *Course Project*
 
 <div class="web-image-lg">
-    <img src="../../images/project-images/uav/drone_project_map.PNG">
+    <img src="../../images/project-images/uav/drone_project_map.png">
 </div>
 
 The arena for the final demonstration is shown in the figure above. The task we are required
