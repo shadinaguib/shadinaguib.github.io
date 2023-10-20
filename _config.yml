@@ -27,6 +27,8 @@ collections:
     output: true
   software:
     output: true
+  personal:
+    output: true
   design:
     output: true
   music:

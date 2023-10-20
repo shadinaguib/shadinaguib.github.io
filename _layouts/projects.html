@@ -78,7 +78,36 @@ bodyClass: page-projects-list
   </div>
 </a>
 
-<a class="strip" id="projects-space">
+<a class="strip" id="projects-personal">
+  <div class="container pt-1">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12 col-lg-12 mb-2">
+        <div class="feature-projects">
+          <div class="feature-image"><img alt="Software logo" src="/images/features/computer_science.png" /></div>
+          <h2 class="feature-title">Personal Projects</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-2 pb-6">
+    <div class="row">
+      {% for project in site.personal %}
+      <div class="col-12 col-md-6 mb-3">
+        <div class="project project-summary">
+          <div class="project-content">
+            <h2 class="project-title">
+              <a href="{{site.baseurl}}{{ project.url }}">{{ project.title }}</a>
+            </h2>
+            <p>{{ project.content | markdownify | strip_html | truncate: 100 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</a>
+
+<!-- <a class="strip" id="projects-space">
   <div class="container pt-1">
     <div class="row justify-content-center">
       <div class="col-12 col-md-12 col-lg-12 mb-2">
@@ -108,9 +137,9 @@ bodyClass: page-projects-list
       <p style="text-align:center">Coming Soon...</p>
     </h2>
   </div>
-</a>
+</a> -->
 
-<a class="strip" id="projects-design">
+<!-- <a class="strip" id="projects-design">
   <div class="container pt-1">
     <div class="row justify-content-center">
       <div class="col-12 col-md-12 col-lg-12 mb-2">
@@ -137,4 +166,4 @@ bodyClass: page-projects-list
       {% endfor %}
     </div>
   </div>
-</a>
+</a> -->

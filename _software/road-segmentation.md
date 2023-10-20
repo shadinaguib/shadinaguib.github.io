@@ -50,6 +50,10 @@ A study on satellite image segmentation utilized the U-Net architecture and its 
     <img src="../../images/project-images/road_segmentation/results.png">
 </div>
 
+# Additional Information
+
+For any more information on the project, please don't hesitate to contact me <a href="/contact">here</a>, or check out the code below.
+
 <div class="row justify-content-center">
   <div class="col-auto">
     <a class="button_link" href="https://github.com/shadinaguib/ML_Road-Segmentation" target="_blank">Code</a>
