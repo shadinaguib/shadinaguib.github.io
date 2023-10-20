@@ -1,5 +1,5 @@
 ---
-title: "High voltage power supply for tethered drones"
+title: "High Voltage Power Supply for Tethered Drones"
 date: 2021-05-01T12:00:00+2:00
 featured: true
 weight: 2

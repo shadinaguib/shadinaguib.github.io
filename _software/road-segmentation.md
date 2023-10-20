@@ -1,5 +1,5 @@
 ---
-title: "Road segmentation from satellite images"
+title: "Road Segmentation From Satellite Images"
 date: 2020-12-18T12:33:46+01:00
 featured: true
 weight: 1

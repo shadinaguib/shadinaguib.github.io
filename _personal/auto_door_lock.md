@@ -1,5 +1,5 @@
 ---
-title: "Automatic door lock"
+title: "Automatic Door Lock"
 date: 2021-05-01T12:00:00+2:00
 featured: true
 weight: 2
