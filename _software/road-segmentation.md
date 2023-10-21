@@ -26,6 +26,10 @@ Semantic segmentation of satellite images aims to classify pixels as road or bac
 ## Data Augmentation
 To tackle the lack of abundant data, the dataset was expanded using transformations like horizontal and vertical mirroring, and various rotations. The original set was skewed with just 15% of images having tilted roads. Rotation transformations balanced this, aiding better network training. Additionally, images were cropped into 80x80 pixel patches with 40-pixel overlap, expanding the dataset size.
 
+<div class="web-image-md">
+    <img src="../../images/project-images/road_segmentation/data_aug.png">
+</div>
+
 ## Convolutional Neural Networks
 CNNs, having proven their mettle in machine vision, were used as a baseline. Our model included two 2D convolutions, each succeeded by a Relu activation and a Max pooling layer. The output feature map was then reshaped and passed through three fully connected layers for final classification.
 
